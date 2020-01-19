@@ -11,9 +11,15 @@ run apt-get update && \
 
 
 add ./mod-wsgi.conf /etc/apache2/conf-available/mod-wsgi.conf
-STOPSIGNAL SIGWINCH
+add ./http-foreground /usr/local/bin
+
+
+STOPSIGNAL SIGINT
 
 
 run a2enconf mod-wsgi
 
-CMD ["apache2ctl", "-D", "FOREGROUND"]
+
+CMD ["http-foreground"]
+
+
