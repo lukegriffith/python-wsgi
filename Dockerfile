@@ -11,6 +11,8 @@ RUN apt-get update && \
 
 
 ADD ./mod-wsgi.conf /etc/apache2/conf-available/mod-wsgi.conf
+ADD ./static /var/www/html
+
 ADD ./http-foreground /usr/local/bin
 
 
